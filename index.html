@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>请求原谅</title>
     <style>
         body {
@@ -13,13 +13,13 @@
             min-height: 100vh;
             margin: 0;
             background: linear-gradient(to bottom, #001f3f, #003366);
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
             position: relative;
             overflow: hidden;
         }
 
         h1 {
-            font-size: 48px;
+            font-size: 32px;
             color: white;
             text-align: center;
             display: flex;
@@ -29,8 +29,8 @@
         }
 
        .crying-emoji {
-            font-size: 100px;
-            margin-bottom: 20px;
+            font-size: 80px;
+            margin-bottom: 15px;
         }
 
         /* 定义眼泪样式和动画 */
@@ -55,9 +55,9 @@
         /* 定义乌云样式 */
        .cloud {
             position: absolute;
-            top: 20px;
-            width: 200px;
-            height: 60px;
+            top: 10px;
+            width: 150px;
+            height: 40px;
             background: rgba(255, 255, 255, 0.8);
             border-radius: 50px;
             filter: blur(5px);
@@ -73,17 +73,17 @@
         }
 
        .cloud::before {
-            width: 100px;
-            height: 100px;
-            top: -50px;
-            left: 25px;
+            width: 80px;
+            height: 80px;
+            top: -40px;
+            left: 20px;
         }
 
        .cloud::after {
-            width: 80px;
-            height: 80px;
-            top: -30px;
-            right: 25px;
+            width: 60px;
+            height: 60px;
+            top: -20px;
+            right: 20px;
         }
 
        .cloud1 {
@@ -109,16 +109,16 @@
                 transform: translateX(0) scale(1);
             }
             100% {
-                transform: translateX(50px) scale(1.1);
+                transform: translateX(30px) scale(1.1);
             }
         }
 
         /* 按钮样式 */
         button {
             position: absolute;
-            bottom: 50px;
-            padding: 10px 20px;
-            font-size: 18px;
+            bottom: 30px;
+            padding: 8px 16px;
+            font-size: 16px;
             border: none;
             border-radius: 5px;
             background-color: #fff;
@@ -130,11 +130,11 @@
        .message {
             display: none;
             position: absolute;
-            bottom: 120px;
-            padding: 10px;
+            bottom: 80px;
+            padding: 8px;
             background-color: rgba(255, 255, 255, 0.8);
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 14px;
             z-index: 1;
         }
     </style>
@@ -156,7 +156,7 @@
             const tear = document.createElement('div');
             tear.classList.add('tear');
             tear.style.left = Math.random() * window.innerWidth + 'px';
-            tear.style.animationDuration = Math.random() * 3 + 2 + 's';
+            tear.style.animationDuration = Math.random() * 3 + 2 +'s';
             document.body.appendChild(tear);
             setTimeout(() => {
                 tear.remove();
@@ -174,4 +174,4 @@
     </script>
 </body>
 
-</html>    
+</html>  
