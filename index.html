@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>请求原谅</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(to bottom, #001f3f, #003366);
+            font-family: Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1;
+        }
+
+       .crying-emoji {
+            font-size: 100px;
+            margin-bottom: 20px;
+        }
+
+        /* 定义眼泪样式和动画 */
+       .tear {
+            position: absolute;
+            width: 2px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -10px;
+            }
+            100% {
+                top: 100vh;
+            }
+        }
+
+        /* 定义乌云样式 */
+       .cloud {
+            position: absolute;
+            top: 20px;
+            width: 200px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            filter: blur(5px);
+            z-index: 2;
+        }
+
+       .cloud::before,
+       .cloud::after {
+            content: "";
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+        }
+
+       .cloud::before {
+            width: 100px;
+            height: 100px;
+            top: -50px;
+            left: 25px;
+        }
+
+       .cloud::after {
+            width: 80px;
+            height: 80px;
+            top: -30px;
+            right: 25px;
+        }
+
+       .cloud1 {
+            transform: scale(1);
+            left: 10%;
+            animation: float 15s linear infinite alternate;
+        }
+
+       .cloud2 {
+            transform: scale(0.8);
+            left: 35%;
+            animation: float 20s linear infinite alternate;
+        }
+
+       .cloud3 {
+            transform: scale(1.2);
+            left: 70%;
+            animation: float 18s linear infinite alternate;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateX(0) scale(1);
+            }
+            100% {
+                transform: translateX(50px) scale(1.1);
+            }
+        }
+
+        /* 按钮样式 */
+        button {
+            position: absolute;
+            bottom: 50px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        /* 提示文字样式 */
+       .message {
+            display: none;
+            position: absolute;
+            bottom: 120px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            font-size: 16px;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+    <h1>
+        <span class="crying-emoji">😢</span>
+        对不起我错了o(╥﹏╥)o，可不可以原谅我。
+    </h1>
+    <button id="clickButton">可以点我吗</button>
+    <div class="message" id="message">如果可以的话可以给我一个1吗，我什么都可以做！TAT</div>
+    <!-- 动态生成眼泪 -->
+    <script>
+        function createTear() {
+            const tear = document.createElement('div');
+            tear.classList.add('tear');
+            tear.style.left = Math.random() * window.innerWidth + 'px';
+            tear.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(tear);
+            setTimeout(() => {
+                tear.remove();
+            }, (parseFloat(tear.style.animationDuration) * 1000));
+        }
+
+        setInterval(createTear, 200);
+
+        // 按钮点击事件
+        const clickButton = document.getElementById('clickButton');
+        const message = document.getElementById('message');
+        clickButton.addEventListener('click', function () {
+            message.style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>    
